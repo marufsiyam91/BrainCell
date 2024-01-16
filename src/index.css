@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+
+body{
+     max-width: 1280px;
+     height: 100%;
+     font-family: 'Montserrat', sans-serif;
+     background: url('https://i.postimg.cc/bv3DXyXm/Pngtree-3d-illustration-of-a-survey-5787909.jpg');
+}
+
+button{
+     font-family: 'Montserrat', sans-serif;
+}
+
+input{
+     font-family: 'Montserrat', sans-serif;
+}
+
