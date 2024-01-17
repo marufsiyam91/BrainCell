@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./AddTask_Form.module.css";
+import { doc, setDoc } from "firebase/firestore"; 
+import { db } from "../../Firebase/FirebaseConfig";
 
 const AddTask_Form = () => {
   const [taskData, setTaskData] = useState({
@@ -9,7 +11,7 @@ const AddTask_Form = () => {
     images: "",
   });
 
-  const [storedData, setStoredData] = useState(null)
+//   const [storedData, setStoredData] = useState(null)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,10 +23,18 @@ const AddTask_Form = () => {
   };
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
      e.preventDefault()
-     setStoredData({...taskData})
-     console.log(storedData)
+     console.log(taskData)
+     // setStoredData({...taskData})
+     const docData = {...taskData}
+     try{
+          await setDoc(doc(db, "Tasks", "LA"),docData);
+             console.log('data submitted')
+     }catch(err){
+          console.log(err)
+     }
+     console.log(taskData)
   }
 
   return (
